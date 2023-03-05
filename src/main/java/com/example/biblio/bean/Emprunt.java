@@ -1,6 +1,8 @@
 package com.example.biblio.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.*;
 
@@ -10,6 +12,7 @@ public class Emprunt {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(  shape = JsonFormat.Shape.STRING , pattern = "dd-MM-yyyy")
     private Date dateEmprunt;
     @Temporal(TemporalType.DATE)
     private Date dateRestitutionPrevu;

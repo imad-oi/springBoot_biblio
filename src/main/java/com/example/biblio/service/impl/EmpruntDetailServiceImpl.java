@@ -35,6 +35,7 @@ public class EmpruntDetailServiceImpl implements EmpruntDetailService {
             empruntDetails.forEach(ed -> {
                 ed.setEmprunt(emprunt);
                 Livre foundedLivre = livreService.findByIsbn(ed.getLivre().getIsbn()) ;
+                ed.setLivre(foundedLivre);
                 ed.setDateRestitutionPrevu(DateUtil.addDays(emprunt.getDateEmprunt(),foundedLivre.getNombreJourEmprunt()));
                 empruntDetailDao.save(ed);
             });

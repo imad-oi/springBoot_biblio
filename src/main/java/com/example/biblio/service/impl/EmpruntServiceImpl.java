@@ -20,10 +20,8 @@ import java.util.List;
 public class EmpruntServiceImpl implements EmpruntService {
     @Autowired
     private EmpruntDao empruntDao;
-
     @Autowired
     private LivreService livreService;
-
     @Autowired
     private ClientService clientService;
     @Autowired
@@ -44,7 +42,7 @@ public class EmpruntServiceImpl implements EmpruntService {
         Emprunt foundedEmprunt = findByReference(emprunt.getReference());
         Client client = clientService.findByCin(emprunt.getClient().getCin());
 
-        if (emprunt != null) {
+        if (foundedEmprunt != null) {
             return -1;
         } else if (client == null) {
             return -2;
@@ -56,7 +54,7 @@ public class EmpruntServiceImpl implements EmpruntService {
             emprunt.setClient(client);
             emprunt.setDateEmprunt(new Date());
             empruntDao.save(emprunt);
-            empruntDetailService.save(emprunt ,empruntDetails);
+            empruntDetailService.save(emprunt, empruntDetails);
             return 1;
         }
     }
