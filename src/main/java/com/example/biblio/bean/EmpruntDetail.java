@@ -3,10 +3,9 @@ package com.example.biblio.bean;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
-public class EmpruntDetails {
+public class EmpruntDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,18 +1,14 @@
 package com.example.biblio.service.facade;
 
 import com.example.biblio.bean.Client;
+import com.example.biblio.bean.Livre;
 
 import java.util.List;
 
-public interface ClientService {
-    List<Client> findAll();
+public interface LivreService {
+    List<Livre> findAll();
 
-    Client findByCin(String cin);
+    Livre findByIsbn(String isbn);
 
-    int save(Client client);
-
-    List<Client> findByFiabilite();
-
-    List<Client> findByPointFiabilite(int pointFiabilite);
-
+    int save(Livre livre);
 }
